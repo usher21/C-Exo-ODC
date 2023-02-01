@@ -2,18 +2,18 @@
 
 int main(int argc, char const *argv[])
 {
-	int hauteur;
+	int hauteur, nombreCaractere, nombreEspace;
 	char symbole;
 
 	do
 	{
 		printf("Entrer le symbole à dessiner: ");
 		scanf("%c", &symbole);
-		if (symbole != '+' && symbole != '-' && symbole != '*' && symbole != '^' && symbole != '$')
+		if (symbole != '+' && symbole != '0' && symbole != '*' && symbole != '^' && symbole != '$')
 		{
 			printf("Ce type de symbole n'est pas accépté\n");
 		}
-	} while (symbole != '+' && symbole != '-' && symbole != '*' && symbole != '^' && symbole != '$');
+	} while (symbole != '+' && symbole != '0' && symbole != '*' && symbole != '^' && symbole != '$');
 
 	do
 	{
@@ -25,41 +25,40 @@ int main(int argc, char const *argv[])
 		}
 	} while (hauteur <= 0);
 	
-	int milieu = hauteur % 2 != 0 ? (hauteur / 2) + 1 : hauteur / 2;
-	int nbCar = hauteur;
-	int nbEsp = 0;
+	nombreCaractere = hauteur + (hauteur - 1);
+	nombreEspace = 0;
 
-	for (int j = 1; j <= milieu; ++j)
+	for (int j = 1; j <= hauteur; ++j)
 	{
-		for (int i = 1; i <= nbEsp; ++i)
+		for (int i = 1; i <= nombreEspace; ++i)
 		{
 			printf(" ");
 		}
-		for (int i = 1; i <= nbCar; ++i)
+		for (int i = 1; i <= nombreCaractere; ++i)
 		{
 			printf("%c", symbole);
 		}
 		printf("\n");
-		nbEsp++;
-		nbCar -= 2;
+		nombreEspace++;
+		nombreCaractere -= 2;
 	}
 	
-	nbCar = hauteur % 2 != 0 ? 1 : 2;
-	nbEsp = milieu - 1;
+	nombreCaractere = 3;
+	nombreEspace = hauteur - 2;
 
-	for (int j = milieu; j < hauteur; ++j)
+	for (int j = 1; j < hauteur; ++j)
 	{
-		for (int i = 1; i <= nbEsp; ++i)
+		for (int i = 1; i <= nombreEspace; ++i)
 		{
 			printf(" ");
 		}
-		for (int i = 1; i <= nbCar; ++i)
+		for (int i = 1; i <= nombreCaractere; ++i)
 		{
 			printf("%c", symbole);
 		}
 		printf("\n");
-		nbEsp--;
-		nbCar += 2;
+		nombreEspace--;
+		nombreCaractere += 2;
 	}
 
 	return 0;
