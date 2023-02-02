@@ -57,8 +57,6 @@ int main(int argc, char const *argv[])
 	if (sequence > plusLongSequence)
 	{
 		plusLongSequence = sequence;
-		position = i - sequence;
-
 	}
 
 	printf("La plus longue séquence: %d\n", plusLongSequence);
