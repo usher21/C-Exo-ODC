@@ -34,8 +34,6 @@ int main(int argc, char const *argv[])
 			}
 		} while(nombre_courrant < 1 || nombre_courrant > 100);
 		i++;
-
-		/*printf("nombre_courrant = %d, sequence = %d\n", nombre_courrant, sequence);*/
 		
 		if (nombre_courrant > nombre_precedent)
 		{
